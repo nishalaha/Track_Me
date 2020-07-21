@@ -38,7 +38,7 @@
       devices.push({ user, name });
       
       localStorage.setItem('devices', JSON.stringify(devices));
-      location.href = 'device-list.html';
+      location.href = '/';
      });
 
      $('#send-command').on('click', function() {
@@ -46,5 +46,5 @@
         console.log(`command is: ${command}`);
        });
        
-     
+     $('#navbar').load('navbar.html');
      
