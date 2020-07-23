@@ -46,5 +46,35 @@
         console.log(`command is: ${command}`);
        });
        
-     $('#navbar').load('navbar.html');
+    
      
+     $('#register').on('click', function () {
+      const userid = $('#username').val()
+      const password = $('#password').val()
+      const com_password = $('#com_password').val()
+      const exists = users.find(user => user.userid === userid);
+      if (exists) {
+          document.getElementById('error').innerHTML = "User already exists";
+      } else if (password != com_password) {
+          document.getElementById('error').innerHTML = "Passwords doesn't match";
+      } else if (password == "" || com_password == "") {
+          document.getElementById('error').innerHTML = "Password cannot be empty";
+      }
+      else {
+          users.push({ username, password })
+          localStorage.setItem('users', JSON.stringify(users));
+          location.href = '/login';
+      }
+  });
+
+    $('#signin').on('click', function () {
+      const username = $('#uname').val()
+      const password = $('#pwd').val()
+      const exists = users.find(user => user.username === username);
+      if (exists) {
+         if (exists.password == password) { document.getElementById('error').innerHTML = ""; location.href = '/'; localStorage.setItem('isAuthenticated', true); }
+          else { document.getElementById('error').innerHTML = "Incorrect password or username"; }
+      }    else { document.getElementById('error').innerHTML = "Incorrect password or username"; }
+  });
+
+    $('#navbar').load('navbar.html');
