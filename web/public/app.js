@@ -76,5 +76,19 @@
           else { document.getElementById('error').innerHTML = "Incorrect password or username"; }
       }    else { document.getElementById('error').innerHTML = "Incorrect password or username"; }
   });
+  
+  $('#login').on('click', () => {
+    const user = $('#uname').val();
+    const password = $('#pwd').val();
+    $.post(`${API_URL}/authenticate`, { username, password })
+        .then((response) => {
+            if (response.success) {
+                localStorage.setItem('user', user);
+                localStorage.setItem('isAdmin', response.isAdmin);
+                localStorage.setItem('isAuthenticated', true)
+                location.href = '/';
+            } else { $('#message').append(`<p class="alert alert-danger">${response}</p>`); }
+        });
+  });
 
     $('#navbar').load('navbar.html');
