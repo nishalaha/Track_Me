@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />  
+        <link rel="stylesheet" href="style.css"/>     
             <meta charset="utf-8" />
             <meta name="description" content="A frontend dashboard for the TrackMe application" />
             <meta name="author" content="Nishnath Alahakone" />
@@ -10,18 +11,19 @@
     </head>
     <body>
         <div id="navbar"></div>
-        <div style="width: 30em;left: 23%; height: 80%;position: absolute; top: 50%;transform: translate(-50%, -50%); text-align:left;">
-            <h1 style="padding:0ch">Registration</h1>
+        <div style="width: 31em;left: 23%; height: 80%;position: absolute; top: 50%;transform: translate(-50%, -50%); text-align:left;">
+            <h1 class= left  style="padding:0ch">Login</h1>
             <div class="form-group">
-                <label for="user">User</label>
+                
+                <label for="user">Username</label>
                 <input type="text" class="form-control" id="username" />
                 <label for="name">Password</label>
                 <input type="password" class="form-control" id="password" />
-                <label for="name">Comfirm Password</label>
-                <input type="password" class="form-control" id="com_password" />
+                <div style="width: 100%!important;"><p id="error" style="color: red; float:right;"></p></div>
             </div>
-            <button class="btn btn-success" id="register">Register</button>
-            <p>Already have an account? <a href="/login">Sign in</a></p>
+            
+            <button class="btn btn-success" id="login">Login</button>
+            <p>Don't have an account? Create one <a href="/registration.html">here </a>
         </div>
         <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
